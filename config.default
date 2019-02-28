@@ -1,0 +1,3 @@
+#config for autoextractor
+FOLDER="/home/username/Downloads"
+ALREADYEXTRACTED="/home/username/.autoextractor/alreadyextracted"
