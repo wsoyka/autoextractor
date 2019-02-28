@@ -1,3 +1,6 @@
 #config for autoextractor
+
+#folder to watch
 FOLDER="/home/username/Downloads"
+#to keep track of already extracted items
 ALREADYEXTRACTED="/home/username/.autoextractor/alreadyextracted"
