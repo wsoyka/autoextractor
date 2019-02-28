@@ -9,15 +9,21 @@ function my_print(){
 	my_log $*
 }
 
+# log to logfile
 function my_log(){
 	echo $(date) $0 - $* >> "$DIR"/log
 }
 
-
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" #get script dir
-if ![-e "$DIR"/config]; then
+if [ ! -f "$DIR"/config ]; then
 	my_print "No config file found. You can copy 'config.default' to 'config' and set options there. Beware that archive selection is inside this script and not (yet) in the config file"
+	exit 1
+fi
 source "$DIR"/config #get config
+
+if [ ! -f "$ALREADYEXTRACTED" ]; then
+	touch "$ALREADYEXTRACTED"
+fi
 
 cd $FOLDER #go to folder
 
@@ -44,3 +50,4 @@ while (( 1 )); do
 	my_print $(inotifywait -e modify -e moved_to -e create $FOLDER) #wait for updates to watched folder
 
 done
+
