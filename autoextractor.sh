@@ -1,7 +1,7 @@
 #!/bin/bash
-###############################################
-# reuqires p7zip - apt-get install p7zip-full #
-###############################################
+#########################################################
+# reuqires p7zip - apt-get install p7zip-full p7zip-rar #
+#########################################################
 
 # print "{progname} - {all args}"
 function my_print(){
